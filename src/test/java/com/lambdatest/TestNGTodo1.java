@@ -16,15 +16,16 @@ import org.testng.annotations.Test;
 
 public class TestNGTodo1 {
 
-    private RemoteWebDriver driver;
+ 
     private String Status = "failed";
+
+    private WebDriver driver;
 
     @BeforeMethod
     public void setup(Method m, ITestContext ctx) throws MalformedURLException {
-        System.setProperty("webdriver.chrome.driver", "/Users/pramod/Documents/driver/chromedriver");
+        WebDriverManager.chromedriver().setup(); // Automatically sets up ChromeDriver
         driver = new ChromeDriver();
-
-    }
+	}
 
     @Test
     public void basicTest() throws InterruptedException {
